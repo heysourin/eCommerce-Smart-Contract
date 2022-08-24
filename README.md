@@ -1,13 +1,7 @@
-# Sample Hardhat Project
+🔗 I built eCommerce 𝗦𝗺𝗮𝗿𝘁 𝗖𝗼𝗻𝘁𝗿𝗮𝗰𝘁 with 𝗦𝗼𝗹𝗶𝗱𝗶𝘁𝘆.
+🌱 Deployed on 𝗚𝗼𝗲𝗿𝗹𝗶 test network using 𝗛𝗮𝗿𝗱𝗵𝗮𝘁.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-GAS_REPORT=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+🔥Contract Has 3 key features:
+• Seller can register any product (includes its price and description), which will be stored in Array, and the array is made of an Enum.
+• Customer can buy the product using exact amount of Wei. Seller won't be able to buy.
+• Seller can confirm the delivery once she/he received the product. When product is received ecommerce site will pay the seller 70% of the amount as 30% is the commission of the ecommerce company.
