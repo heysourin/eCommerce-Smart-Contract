@@ -22,8 +22,10 @@ contract ecommerce{
     function productAddBySeller(string memory _name, string memory _description, uint _price) public {
         require(_price > 0, "Price must be greater than 0");
         
-        Item memory tempItem;
+        Item memory tempItem;//creating a temporary variable of struct
 
+
+//creating instances of the variable 'tempItem', later putting into array 
         tempItem.name = _name;
         tempItem.description = _description;
         tempItem.price = _price ;
@@ -40,7 +42,8 @@ contract ecommerce{
     function buy(uint _itemId) public payable{
         //itemId = index - 1
         require(items[_itemId-1].price == msg.value, "Please pay the exact price");
-        require(items[_itemId-1].seller != msg.sender, "Seller Can't buy");
+        require(msg.sender != items[_itemId-1].seller, "Seller Can't buy");
+
 
         items[_itemId-1].buyer = msg.sender;
 
@@ -54,7 +57,7 @@ contract ecommerce{
         items[_itemId-1].isDelivered = true;
 
         uint x = items[_itemId-1].price;
-        items[_itemId-1].seller.transfer(x-((30*x)/100)); //30% commission of the ecommerce site
+        items[_itemId-1].seller.transfer(x-((30*x)/100)); //30% commission of the ecommerce site, 70% transfer to the seller
 
         emit delivered(_itemId, items[_itemId-1].isDelivered);
     }
